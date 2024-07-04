@@ -2,10 +2,10 @@
 cmake_minimum_required(VERSION 3.5.1)
 
 # project name
-project(rvarago-hello-cmake)
+project(raytracing)
 
 # creates the variable EXEC and sets it to hello
-set(EXEC hello)
+set(EXEC raytracing)
 
 # set the C++14 standard
 set(CMAKE_CXX_STANDARD 14)
