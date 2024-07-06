@@ -37,16 +37,16 @@ class triangle : public hittable {
 
       const float t = f * dot(edge2, q);
 
-      if (t > EPSILON) {
-        // rec.t = root;
-        rec.p = r.at(rec.t);
-        vec3 outward_normal = unit_vector(cross(edge1, edge2));
-        rec.set_face_normal(r, -outward_normal);
-        rec.mat = mat;
-        return true;
+      if (t < EPSILON) {
+        return false;
       }
 
-      return false;    
+      rec.t = a;
+      rec.p = r.at(rec.t);
+      vec3 outward_normal = unit_vector(cross(edge1, edge2));
+      rec.set_face_normal(r, -outward_normal);
+      rec.mat = mat;
+      return true;  
     }
 
   private:
