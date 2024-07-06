@@ -41,10 +41,10 @@ class triangle : public hittable {
         return false;
       }
 
-      rec.t = a;
+      rec.t = 0.5;
       rec.p = r.at(rec.t);
       vec3 outward_normal = unit_vector(cross(edge1, edge2));
-      rec.set_face_normal(r, -outward_normal);
+      rec.set_face_normal(r, outward_normal);
       rec.mat = mat;
       return true;  
     }
