@@ -40,7 +40,7 @@ class triangle : public hittable {
       if (t < EPSILON) {
         return false;
       }
-
+      // find the angle between down (0,-1,0) and the plane. if cos(theta) is less than 0 then render some shadow based on that value.
       rec.t = a;
       rec.p = r.at(rec.t);
       vec3 outward_normal = unit_vector(cross(edge1, edge2));
