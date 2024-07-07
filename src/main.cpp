@@ -15,10 +15,13 @@ int main() {
     world.add(make_shared<sphere>(point3(0,-1000,0), 1000, ground_material));
 
     auto material1 = make_shared<lambertian>(color(1, 0, 0));
+    auto material2 = make_shared<lambertian>(color(0, 1, 0));
+    auto material3 = make_shared<lambertian>(color(0, 0, 1));
+    auto material4 = make_shared<lambertian>(color(1, 1, 1));
     world.add(make_shared<triangle>(point3(0, 2, 0), point3(2, 1, 1), point3(0, 1, 2), material1));
-    world.add(make_shared<triangle>(point3(0, 2, 0), point3(2, 1, 1), point3(3, 1, 2), material1));
-    world.add(make_shared<triangle>(point3(0, 2, 0), point3(0, 1, 2), point3(3, 1, 2), material1));
-    world.add(make_shared<triangle>(point3(0, 1, 2), point3(2, 1, 1), point3(3, 1, 2), material1));
+    world.add(make_shared<triangle>(point3(0, 2, 0), point3(2, 1, 1), point3(3, 1, 2), material2));
+    world.add(make_shared<triangle>(point3(0, 2, 0), point3(0, 1, 2), point3(3, 1, 2), material3));
+    world.add(make_shared<triangle>(point3(0, 1, 2), point3(2, 1, 1), point3(3, 1, 2), material4));
 
     camera cam;
 

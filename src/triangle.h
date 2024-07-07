@@ -40,8 +40,16 @@ class triangle : public hittable {
       if (t < EPSILON) {
         return false;
       }
+
+      auto root = t;
+        if (!ray_t.surrounds(root)) {
+            root = -t;
+            if (!ray_t.surrounds(root))
+                return false;
+        }
+
       // find the angle between down (0,-1,0) and the plane. if cos(theta) is less than 0 then render some shadow based on that value.
-      rec.t = a;
+      rec.t = root;
       rec.p = r.at(rec.t);
       vec3 outward_normal = unit_vector(cross(edge1, edge2));
       rec.set_face_normal(r, -outward_normal);
